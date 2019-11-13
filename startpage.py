@@ -34,4 +34,4 @@ def index():
     return render_template('index.html', data=data);
 
 if __name__ == '__main__':
-    app.run(debug=True,host=config['hostip'],port=config['hostport'])
+    app.run(debug=False,host=config['hostip'],port=config['hostport'])
