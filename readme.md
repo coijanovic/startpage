@@ -12,4 +12,4 @@ To configure the startpage, you can create the file `config.yaml` in the startpa
 
 ## Setup
 
-Run `python3 startpage.py` (after installing all required packages).
+Run `python3 startpage.py` (after installing all required packages with `pip3 install -r requirements.txt`). 
