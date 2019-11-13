@@ -3,7 +3,6 @@ hostip:   0.0.0.0
 hostport: 8000
 
 # content settings
-username: Christoph
 units:    metric # imperial or metric
 location: Karlsruhe
 
