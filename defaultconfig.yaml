@@ -5,6 +5,6 @@ hostport: 8000
 # content settings
 username: Christoph
 units:    metric # imperial or metric
-location: New York 
+location: Karlsruhe
 
 

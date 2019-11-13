@@ -4,7 +4,7 @@ import yaml
 import json
 import wget
 import time
-import datetime
+from datetime import datetime
 
 if os.path.exists('config.yaml'):
     configfile = 'config.yaml'
@@ -21,17 +21,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # 1. Greeting
-
     # 2. Date
-
+    td = "Today is {d}".format(d=datetime.now().strftime("%A, the %-dth of %B %Y"))
     # 3. Weather
-    url = "https://api.openweathermap.org/data/2.5/weather?q=Karlsruhe,de&id=4737316&units=metric&appid=e5b292ae2f9dae5f29e11499c2d82ece"
+    url = "https://api.openweathermap.org/data/2.5/weather?q={l}&id=4737316&units={u}&appid=e5b292ae2f9dae5f29e11499c2d82ece".format(l=config['location'],u=config['units'])
     f = wget.download(url, out="weather.json")
     weather = json.loads(open(f).read())
     w = "Outside, it's {t} °C and {h}".format(t=round(weather['main']['temp']), h=weather['weather'][0]['description'])
-    return render_template('index.html', w=w);
-    r = "Hi Christoph"
+    data = [td, w]
+    return render_template('index.html', data=data);
 
 if __name__ == '__main__':
     app.run(debug=True,host=config['hostip'],port=config['hostport'])
