@@ -23,7 +23,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # 2. Date
-    td = "Today is {d}".format(d=datetime.now().strftime("%A, the %-dth of %B %Y"))
+    td = "Today is {d}".format(d=datetime.now().strftime("%A, %B %d, %Y"))
     # 3. Weather
     url = "https://api.openweathermap.org/data/2.5/weather?q={l}&id=4737316&units={u}&appid=e5b292ae2f9dae5f29e11499c2d82ece".format(l=config['location'],u=config['units'])
     f = wget.download(url, out="weather.json")
